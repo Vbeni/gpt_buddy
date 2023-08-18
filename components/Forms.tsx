@@ -1,17 +1,36 @@
 // components/Forms.tsx
 import React, { useEffect, useRef } from 'react';
 
-export default function Forms({ userInput, setUserInput, handleButtonClick, isButtonClicked, isLoading, promptOutput, setPromptOutput }) {
-    const outputRef = useRef(null);
+type FormsProps = {
+    userInput: string; // Assuming it's a string
+    setUserInput: (input: string) => void;
+    handleButtonClick: () => void; // Or whatever type this function takes/returns
+    isButtonClicked: boolean;
+    isLoading: boolean;
+    promptOutput: string;
+    setPromptOutput: (output: string) => void;
+};
 
+export default function Forms({
+    userInput,
+    setUserInput,
+    handleButtonClick,
+    isButtonClicked,
+    isLoading,
+    promptOutput,
+    setPromptOutput,
+}: FormsProps)  {
+    const outputRef = useRef<HTMLTextAreaElement>(null);
+    
     useEffect(() => {
-        if (isButtonClicked && !isLoading) {
+        if (isButtonClicked && !isLoading && outputRef.current) {
             outputRef.current.scrollIntoView({
                 behavior: 'smooth',
                 block: 'center'
             });
         }
     }, [isLoading, isButtonClicked]);
+    
 
 
     return (
