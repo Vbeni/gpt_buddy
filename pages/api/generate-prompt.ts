@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import axios from 'axios';
 
-export default async (req: NextApiRequest, res: NextApiResponse) => {
+const generatePrompt = async (req: NextApiRequest, res: NextApiResponse) => {
     if (req.method !== 'POST') {
       return res.status(405).end();
     }
@@ -37,3 +37,5 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     }
     
 };
+
+export default generatePrompt;
