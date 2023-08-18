@@ -173,6 +173,15 @@ textarea {
   overflow-y: hidden
 
 }
+.sidebar-image img {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.sidebar-image.loaded img {
+  opacity: 1;
+}
+
 
 .loading-state {
   @apply relative flex items-center justify-center w-full h-24 bg-white font-bold shadow-md rounded;
@@ -355,4 +364,3 @@ button:active {
 
  
 }
-
